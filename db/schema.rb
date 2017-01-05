@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161228123745) do
+ActiveRecord::Schema.define(version: 20170105114422) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "name"
-    t.integer  "phone",      limit: 15
+    t.string   "phone"
     t.string   "password"
     t.string   "city"
     t.string   "address"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "departments", force: :cascade do |t|
@@ -29,16 +29,16 @@ ActiveRecord::Schema.define(version: 20161228123745) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "order_details", force: :cascade do |t|
+  create_table "details", force: :cascade do |t|
     t.integer  "order_id"
     t.integer  "product_id"
-    t.integer  "qty",        limit: 15
-    t.integer  "price",      limit: 15
+    t.integer  "qty"
+    t.integer  "price"
     t.string   "remark"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.index ["order_id"], name: "index_order_details_on_order_id"
-    t.index ["product_id"], name: "index_order_details_on_product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_details_on_order_id"
+    t.index ["product_id"], name: "index_details_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20161228123745) do
     t.string   "gate"
     t.string   "remark"
     t.string   "payment"
+    t.integer  "total"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"

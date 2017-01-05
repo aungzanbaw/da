@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :order_details
+  resources :details
   resources :orders
   resources :products
   resources :staffs

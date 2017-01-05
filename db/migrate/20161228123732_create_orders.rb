@@ -7,6 +7,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.string :gate
       t.string :remark
       t.string :payment
+      t.integer :total
 
       t.timestamps
     end
