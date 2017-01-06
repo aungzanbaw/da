@@ -2,7 +2,7 @@
 
 <h1>Customers</h1>
 
-<table>
+<table class="dt table table-striped table-bordered" id="customer">
   <thead>
     <tr>
       <th>Name</th>
@@ -10,7 +10,7 @@
       <th>Password</th>
       <th>City</th>
       <th>Address</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -22,9 +22,9 @@
         <td><%= customer.password %></td>
         <td><%= customer.city %></td>
         <td><%= customer.address %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', customer %>
+        <%= link_to 'Edit', edit_customer_path(customer) %>
+        <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
