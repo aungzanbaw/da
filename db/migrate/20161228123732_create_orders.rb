@@ -8,6 +8,8 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.string :remark
       t.string :payment
       t.integer :total
+      t.boolean :status
+
 
       t.timestamps
     end

@@ -1,34 +1,56 @@
 <p id="notice"><%= notice %></p>
+<table class="table table-bordered table-condensed">
+  <tbody>
+    <tr>
+      <td><strong>Vocher:</strong></td>
+      <td><%= @order.vocher %></td>
+    </tr>
+    <tr>
+      <td><strong>Customer:</strong></td>
+      <td><%= @order.customer.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Delivery:</strong></td>
+      <td><%= @order.delivery %></td>
+    </tr>
+    <tr>
+      <td><strong>Gate:</strong></td>
+      <td><%= @order.gate %></td>
+    </tr>
+    <tr>
+      <td><strong>Remark:</strong></td>
+      <td><%= @order.remark %></td>
+    </tr>
+    <tr>
+      <td><strong>Payment:</strong></td>
+      <td><%= @order.payment %></td>
+    </tr>
+    <!--
+      <td><% link_to 'Edit', edit_order_path(@order) %></td>
+      <td></td>
+    </tr>  -->
+  </tbody>
+</table>
 
-<p>
-  <strong>Vocher:</strong>
-  <%= @order.vocher %>
-</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <td>Product</td>
+      <td>Qty</td>
+      <td>Price</td>
+      <td>Remark</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @details.each do |d| %>
+      <tr>
+        <td><%= d.product.name %></td>
+        <td><%= d.qty %></td>
+        <td><%= d.price %></td>
+        <td><%= d.remark %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @order.customer %>
-</p>
-
-<p>
-  <strong>Delivery:</strong>
-  <%= @order.delivery %>
-</p>
-
-<p>
-  <strong>Gate:</strong>
-  <%= @order.gate %>
-</p>
-
-<p>
-  <strong>Remark:</strong>
-  <%= @order.remark %>
-</p>
-
-<p>
-  <strong>Payment:</strong>
-  <%= @order.payment %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

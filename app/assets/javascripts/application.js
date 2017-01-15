@@ -21,13 +21,6 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 
-$(document).ready(function() {
-	$('.dt').DataTable();		
-	$(document).on('page:load',function() {
-		$('.dt').DataTable();
-	});
-});
-
-$(document).on('ready page:load',function () {
-	$('.dt').DataTable();
+document.addEventListener('turbolinks:load',function() {
+	$('.dt').DataTable()
 })

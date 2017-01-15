@@ -25,11 +25,13 @@ Customer.create!(name:"Maung Maung", phone:13, password:"123123", city:"Yangon",
 Customer.create!(name:"Maung Maung", phone:14, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
 
 Department.delete_all
+@dep0 = Department.create!(name:"Admin", description:"Above all departments")
 @dep = Department.create!(name:"Watch", description:"a small timepiece worn typically on a strap on one's wrist")
 @dep1 = Department.create!(name:"Smart phone", description:"a cellular phone that performs many of the functions of a computer")
 @dep2 = Department.create!(name:"Electronic", description:"carried out or accessed by means of a computer or other electronic device")
 
 Staff.delete_all
+@staff0 = Staff.create!(username:"Thet Naing", password:"123123", department:@dep0)
 @staff = Staff.create!(username:"Kyaw Kyaw", password:"123123", department:@dep)
 @staff1 = Staff.create!(username:"Aye Aye", password:"123123", department:@dep1)
 @staff2 = Staff.create!(username:"Maung Maung", password:"123123", department:@dep2)
@@ -43,9 +45,9 @@ Product.delete_all
 @p5 = Product.create!(name:"FFF", brand:"FFF", group:"ff group", price:93737, department:@dep2)
 
 Order.delete_all
-@o = Order.create!(vocher:"123123", customer:@customer, delivery:"Car", gate:"Mandalar Min", remark:"write something" , payment:"cash")
-@o1 = Order.create!(vocher:"234234", customer:@customer1, delivery:"Plane", gate:"Mandalar Min", remark:"write something" , payment:"credit")
-@o2 = Order.create!(vocher:"345345", customer:@customer2, delivery:"Ship", gate:"Mandalar Min", remark:"important" , payment:"cash")
+@o = Order.create!(vocher:"123123", customer:@customer, delivery:"Car", gate:"Mandalar Min", remark:"write something" , payment:"cash", status: true)
+@o1 = Order.create!(vocher:"234234", customer:@customer1, delivery:"Plane", gate:"Mandalar Min", remark:"write something" , payment:"credit", status: false)
+@o2 = Order.create!(vocher:"345345", customer:@customer2, delivery:"Ship", gate:"Mandalar Min", remark:"important" , payment:"cash", status: false)
 
 Detail.delete_all
 Detail.create!(order:@o, product:@p, qty:1, price:0, remark:"out of stock")

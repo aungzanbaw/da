@@ -1,5 +1,27 @@
 class StaffsController < ApplicationController
+  before_filter :not_admin, except: [:login, :validate, :logout]
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
+
+  def login
+    redirect_to orders_path if session[:staff] && session[:staff] != nil
+  end
+
+  def validate
+		@staff = Staff.find_by(username: params[:username])
+		if @staff && @staff.password == params[:password]
+			session[:staff] = @staff.id
+			session[:staff_username] = @staff.username
+			redirect_to orders_path, notice: 'You have successfully logged in.'
+		else
+			redirect_to root_path, notice: 'Invalid login attempt.'
+		end
+  end
+
+  def logout
+    session.delete(:staff)
+    session.delete(:staff_username)
+    render 'login', notice: 'Successfully Logout'
+  end
 
   # GET /staffs
   # GET /staffs.json

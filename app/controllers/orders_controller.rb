@@ -1,8 +1,13 @@
 class OrdersController < ApplicationController
+  before_filter :authenticate
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
   # GET /orders.json
+  def unsolve
+    @orders = Order.where(status: true)
+  end
+
   def index
     @orders = Order.all
   end
@@ -10,6 +15,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @details = Detail.where(order_id: @order.id)
   end
 
   # GET /orders/new
