@@ -45,7 +45,13 @@
     <% @details.each do |d| %>
       <tr>
         <td><%= d.product.name %></td>
-        <td><%= d.qty %></td>
+        <td>
+          <% if d.product.department.id == @staff_dep.id %>
+          <input type="text" name="" value="<%= d.qty %>">
+          <% else %>
+          <%= d.qty  %>
+          <% end %>
+        </td>
         <td><%= d.price %></td>
         <td><%= d.remark %></td>
       </tr>

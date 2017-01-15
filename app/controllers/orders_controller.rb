@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @details = Detail.where(order_id: @order.id)
+    @staff_dep = Staff.find(session[:staff]).department if session[:staff] if session[:staff] != 1
   end
 
   # GET /orders/new

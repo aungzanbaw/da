@@ -30,7 +30,13 @@
       <% @orders.each do |order| %>
         <tr>
           <td><%= link_to order.vocher, order %></td>
-          <td><%= link_to order.customer.name, customer_path(order.customer) %></td>
+          <td>
+            <% if session[:staff] == 1 %>
+              <%= link_to order.customer.name, customer_path(order.customer) %>
+            <% else %>
+              <%= order.customer.name %>
+            <% end %>
+          </td>
           <td><%= order.delivery %></td>
           <td><%= order.gate %></td>
           <td><%= order.remark %></td>
@@ -38,8 +44,8 @@
           <td><%= order.created_at.to_date %></td>
           <td><%= order.created_at.strftime("%H:%M:%S") %></td>
           <td>
-            <%= link_to 'Edit', edit_order_path(order) %>
-            <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <%= link_to 'Edit', edit_order_path(order) if session[:staff] == 1 %>
+            <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } if session[:staff] == 1%></td>
           </td>
         </tr>
       <% end %>
