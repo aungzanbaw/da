@@ -1,7 +1,6 @@
 class CreateOrders < ActiveRecord::Migration[5.0]
   def change
     create_table :orders do |t|
-      t.string :vocher
       t.references :customer, foreign_key: true
       t.string :delivery
       t.string :gate
@@ -9,8 +8,6 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.string :payment
       t.integer :total
       t.boolean :status
-
-
       t.timestamps
     end
   end

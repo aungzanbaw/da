@@ -2,10 +2,6 @@
 <table class="table table-bordered table-condensed">
   <tbody>
     <tr>
-      <td><strong>Vocher:</strong></td>
-      <td><%= @order.vocher %></td>
-    </tr>
-    <tr>
       <td><strong>Customer:</strong></td>
       <td><%= @order.customer.name %></td>
     </tr>
@@ -46,10 +42,12 @@
       <tr>
         <td><%= d.product.name %></td>
         <td>
-          <% if d.product.department.id == @staff_dep.id %>
-          <input type="text" name="" value="<%= d.qty %>">
-          <% else %>
-          <%= d.qty  %>
+          <% if session[:staff] != 1 %>
+            <% if d.product.department.id == @staff_dep.id %>
+            <input type="text" name="" value="<%= d.qty %>">
+            <% else %>
+            <%= d.qty  %>
+            <% end %>
           <% end %>
         </td>
         <td><%= d.price %></td>

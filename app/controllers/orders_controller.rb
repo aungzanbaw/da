@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @details = Detail.where(order_id: @order.id)
-    @staff_dep = Staff.find(session[:staff]).department if session[:staff] if session[:staff] != 1
+    @staff_dep = Staff.find(session[:staff]).department if session[:staff] != 1
   end
 
   # GET /orders/new

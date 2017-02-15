@@ -1,5 +1,5 @@
 class StaffsController < ApplicationController
-  before_filter :not_admin, except: [:login, :validate, :logout]
+  before_action :not_admin, except: [:login, :validate, :logout]
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
 
   def login

@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  before_filter :not_admin
+  before_action :not_admin
   before_action :set_department, only: [:show, :edit, :update, :destroy]
 
   # GET /departments

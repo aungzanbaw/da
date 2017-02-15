@@ -1,5 +1,5 @@
 class DetailsController < ApplicationController
-  before_filter :authenticate
+  before_action :authenticate
   before_action :set_detail, only: [:show, :edit, :update, :destroy]
 
   # GET /details
