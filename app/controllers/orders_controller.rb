@@ -5,7 +5,12 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def unsolve
-    @orders = Order.where(status: true)
+    if session[:staff] == 1
+      @orders = Order.where(status: true)
+    else
+      @department = Staff.find_by(id: session[:staff]).department
+      @orders = Order.where(status: true, department: @department)
+    end
   end
 
   def index
@@ -16,7 +21,7 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @details = Detail.where(order_id: @order.id)
-    @staff_dep = Staff.find(session[:staff]).department if session[:staff] != 1
+    # @staff_dep = Staff.find(session[:staff]).department if session[:staff] != 1
   end
 
   # GET /orders/new

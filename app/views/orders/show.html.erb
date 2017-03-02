@@ -35,6 +35,7 @@
       <td>Qty</td>
       <td>Price</td>
       <td>Remark</td>
+      <td>Remove</td>
     </tr>
   </thead>
   <tbody>
@@ -43,15 +44,16 @@
         <td><%= d.product.name %></td>
         <td>
           <% if session[:staff] != 1 %>
-            <% if d.product.department.id == @staff_dep.id %>
             <input type="text" name="" value="<%= d.qty %>">
-            <% else %>
+          <% else %>
             <%= d.qty  %>
-            <% end %>
           <% end %>
         </td>
         <td><%= d.price %></td>
         <td><%= d.remark %></td>
+        <td>
+          <%= link_to "Destroy", detail_path(d,order: @order), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

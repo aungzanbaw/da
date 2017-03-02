@@ -8,6 +8,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.string :payment
       t.integer :total
       t.boolean :status
+      t.references :department, foreign_key: true
       t.timestamps
     end
   end

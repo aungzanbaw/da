@@ -49,9 +49,11 @@ ActiveRecord::Schema.define(version: 20170105114422) do
     t.string   "payment"
     t.integer  "total"
     t.boolean  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "department_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.index ["department_id"], name: "index_orders_on_department_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -69,7 +71,7 @@ ActiveRecord::Schema.define(version: 20170105114422) do
     t.string   "username"
     t.string   "password"
     t.integer  "department_id"
-    t.datetime "created_at",    null: false 
+    t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["department_id"], name: "index_staffs_on_department_id"
   end

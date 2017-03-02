@@ -10,6 +10,12 @@
 
 - Staff will process and print respective category
 
+MOBILE REST
+  POST login (phone, password)  => token
+  POST orders (token, delivery, gate, remark, payment, status) => {status: true}
+  GET orders (token) => orders
+
+
 # app/controllers/test_controller.rb
 class TestController < ApplicationController
   before_action :authenticate_user!

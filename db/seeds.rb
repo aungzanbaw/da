@@ -10,20 +10,6 @@ Customer.delete_all
 @customer1 = Customer.create!(name:"Aye Aye", phone:943105273, password:"123123", city:"Yangon", address: "no 123 aka str, YUI township")
 @customer2 = Customer.create!(name:"Maung Maung", phone:9323716728, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
 @customer3 = Customer.create!(name:"John Doe", phone:1231233, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:1, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:2, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:3, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:4, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:5, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:6, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:7, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:8, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:9, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:10, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:11, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:12, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:13, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
-# Customer.create!(name:"Maung Maung", phone:14, password:"123123", city:"Yangon", address: "no 909 lol str, XYZ township")
 
 Department.delete_all
 @dep0 = Department.create!(name:"Admin", description:"Above all departments")
@@ -50,10 +36,10 @@ Product.delete_all
 @p7 = Product.create!(name:"HHH", brand:"HHH", group:"hh group", price:456, department:@dep3)
 
 Order.delete_all
-@o = Order.create!(customer:@customer, delivery:"Car", gate:"Mandalar Min", remark:"write something" , payment:"cash", status: true)
-@o1 = Order.create!(customer:@customer1, delivery:"Plane", gate:"Mandalar Min", remark:"write something" , payment:"credit", status: false)
-@o2 = Order.create!(customer:@customer2, delivery:"Ship", gate:"Mandalar Min", remark:"important" , payment:"cash", status: false)
-@o3 = Order.create!(customer:@customer3, delivery:"Ship", gate:"Mandalar Min", remark:"something" , payment:"cash", status: false)
+@o = Order.create!(customer:@customer, delivery:"Car", gate:"Mandalar Min", remark:"write something" , payment:"cash", status: true, department:@dep)
+@o1 = Order.create!(customer:@customer1, delivery:"Plane", gate:"Mandalar Min", remark:"write something" , payment:"credit", status: false, department:@dep1)
+@o2 = Order.create!(customer:@customer2, delivery:"Ship", gate:"Mandalar Min", remark:"important" , payment:"cash", status: false, department:@dep2)
+@o3 = Order.create!(customer:@customer3, delivery:"Ship", gate:"Mandalar Min", remark:"something" , payment:"cash", status: false, department:@dep3)
 
 Detail.delete_all
 Detail.create!(order:@o, product:@p, qty:1, price:0, remark:"out of stock")
@@ -66,3 +52,5 @@ Detail.create!(order:@o2, product:@p4, qty:7, price:0, remark:"")
 Detail.create!(order:@o2, product:@p3, qty:8, price:0, remark:"")
 Detail.create!(order:@o2, product:@p2, qty:9, price:0, remark:"")
 Detail.create!(order:@o2, product:@p1, qty:10, price:0, remark:"")
+Detail.create!(order:@o3, product:@p6, qty:21, price:0, remark:"")
+Detail.create!(order:@o3, product:@p7, qty:12, price:0, remark:"")
