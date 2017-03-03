@@ -18,10 +18,11 @@
       <th>Gate</th>
       <th>Remark</th>
       <th>Payment</th>
+      <th>Total</th>
+      <th>Department</th>
       <th>Date</th>
       <th>Time</th>
-      <th>Department</th>
-      <th></th>
+      <% unless session[:staff] == 1 %><th></th><% end %>
     </tr>
   </thead>
 
@@ -42,13 +43,15 @@
           <td><%= order.gate %></td>
           <td><%= order.remark %></td>
           <td><%= order.payment %></td>
+          <td><%= order.total %></td>
+          <td><%= order.department.name %></td>
           <td><%= order.created_at.to_date %></td>
           <td><%= order.created_at.strftime("%H:%M:%S") %></td>
-          <td><%= order.department.name %></td>
+          <% unless session[:staff] == 1 %>
           <td>
-            <% link_to 'Edit', edit_order_path(order) if session[:staff] == 1 %>
-            <% link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } if session[:staff] == 1%></td>
+            <%= link_to 'Done', order, data: { confirm: 'Are you sure?' } %></td>
           </td>
+          <% end %>
         </tr>
       <% end %>
     <% else %>

@@ -12,7 +12,7 @@
 
 MOBILE REST
   POST login (phone, password)  => token
-  POST orders (token, delivery, gate, remark, payment, status) => {status: true}
+  POST orders (token, delivery, gate, remark, payment, status, department, {order_details}) => {status: true}
   GET orders (token) => orders
 
 
