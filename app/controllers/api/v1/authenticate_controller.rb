@@ -10,7 +10,7 @@ module Api
           render json: {status: "Bad credentials"}, status: 401
         else
           render_unauthorized if customer.auth_token.nil?
-          render json: {status: "Authorized", token: customer.auth_token}, status: 200
+          render json: {status: "Authorized", customer: customer}, status: 200
         end
       end
 
@@ -19,7 +19,7 @@ module Api
       end
 
       def order
-        
+
       end
 
       protected

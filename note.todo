@@ -12,9 +12,13 @@
 
 MOBILE REST
   POST login (phone, password)  => token
-  POST orders (token, delivery, gate, remark, payment, status, department, {order_details}) => {status: true}
+  POST orders (token, delivery, gate(optional, customer may be fill themselve), remark, payment, status, department, {order_details}) => {status: true}
   GET orders (token) => orders
 
+Brand field will be null
+Import Excel Type, Brand, Models (not real)
+Send excel format
+Order (name, edit permission to repective department staff)
 
 # app/controllers/test_controller.rb
 class TestController < ApplicationController

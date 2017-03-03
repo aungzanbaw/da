@@ -39,11 +39,12 @@
     </tr>
   </thead>
   <tbody>
+    <% match = true if @order.department == Staff.find(session[:staff]).department #if session[:staff] != 1 %>
     <% @details.each do |d| %>
       <tr>
-        <td><%= d.product.name %></td>
+        <td><%= d.name %></td>
         <td>
-          <% if session[:staff] != 1 %>
+          <% if session[:staff] != 1 && match %>
             <input type="text" name="" value="<%= d.qty %>">
           <% else %>
             <%= d.qty  %>
