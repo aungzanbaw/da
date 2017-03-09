@@ -39,7 +39,7 @@
     </tr>
   </thead>
   <tbody>
-    <% match = true if @order.department == Staff.find(session[:staff]).department #if session[:staff] != 1 %>
+    <% match = true if @order.department == Staff.find(session[:staff]).department && @order.status == true %>
     <% @details.each do |d| %>
       <tr>
         <td><%= d.name %></td>
@@ -60,4 +60,16 @@
   </tbody>
 </table>
 
+<% if match %>
+  <%= form_for(@order) do |f| %>
+    <div class="actions">
+      <%= f.hidden_field :status, value: false %>
+      <%= f.submit "Fulfill order", class: 'btn btn-primary',data: { confirm: 'Are you sure?' } %>
+
+    </div>
+  <% end %>
+  <br>
+  <%= link_to ':PDF', "#", class: 'btn btn-warning', onclick: 'window.print()' %>
+<% end %>
+<hr>
 <%= link_to 'Back', orders_path %>

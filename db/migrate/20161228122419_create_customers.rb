@@ -5,7 +5,7 @@ class CreateCustomers < ActiveRecord::Migration[5.0]
       t.string :phone, unique: true
       t.string :password
       t.string :city
-      t.string :address
+      t.string :address 
       t.text   :auth_token
       t.timestamps
     end

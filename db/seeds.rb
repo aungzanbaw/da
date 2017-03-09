@@ -46,6 +46,7 @@ Order.delete_all
 @o2 = Order.create!(customer:@customer2, delivery:"Ship", gate:"Mandalar Min", remark:"important" , payment:"cash", status: false, department:@dep2)
 @o3 = Order.create!(customer:@customer3, delivery:"Air", gate:"Mandalar Min", remark:"something" , payment:"cash", status: false, department:@dep3)
 @o4 = Order.create!(customer:@customer4, delivery:"Train", gate:"Mandalar Min", remark:"something" , payment:"cash", status: false, department:@dep4)
+@o5 = Order.create!(customer:@customer1, delivery:"Plane", gate:"Mandalar Min", remark:"write something" , payment:"credit", status: false, department:@dep1)
 
 Detail.delete_all
 Detail.create!(order:@o,name: "test", qty:1, price:0, remark:"out of stockblar blar")
@@ -62,3 +63,5 @@ Detail.create!(order:@o3,name: "test",  qty:21, price:0, remark:"blar blar")
 Detail.create!(order:@o3,name: "test",  qty:12, price:0, remark:"blar blar")
 Detail.create!(order:@o4,name: "test",  qty:1, price:0, remark:"blar blar")
 Detail.create!(order:@o4,name: "test",  qty:12, price:12, remark:"blar blar")
+Detail.create!(order:@o5,name: "test",  qty:12, price:12, remark:"blar blar")
+Detail.create!(order:@o5,name: "test",  qty:12, price:12, remark:"blar blar")

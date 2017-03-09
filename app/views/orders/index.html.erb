@@ -23,6 +23,7 @@
       <th>Status</th>
       <th>Date</th>
       <th>Time</th>
+      <!-- <th>Download</th> -->
       <% if session[:staff] == 1 %><th>ADMIN</th><% end %>
     </tr>
   </thead>
@@ -47,6 +48,9 @@
         <td><%= order.status %></td>
         <td><%= order.created_at.strftime("%e-%-m-%Y") %></td>
         <td><%= order.created_at.strftime("%H:%M:%S") %></td>
+        <!-- <td>
+          <%= link_to ':EXCEL', order_download_path(id: order.id, format: 'csv') %>
+        </td> -->
         <% if session[:staff] == 1 %>
           <td>
             <%= link_to 'Edit', edit_order_path(order) %>

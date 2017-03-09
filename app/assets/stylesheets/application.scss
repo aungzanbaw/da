@@ -153,4 +153,8 @@
    table{
      font-size: 11px;
    }
+
+   input[type=submit], input, button, a.btn{
+     display: none;
+   }
  }

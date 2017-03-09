@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  # Orders
+  get 'order_done', to: 'orders#done'
+  get 'order_download', to: 'orders#order_download'
+
+  # API
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       post 'login', to: "authenticate#login"
@@ -8,6 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
+  # Staff Login system
   get "login", to: "staffs#login"
   post "validate", to: "staffs#validate"
   get "logout", to: "staffs#logout"
