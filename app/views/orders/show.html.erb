@@ -33,8 +33,8 @@
     <tr>
       <td>Product</td>
       <td>Qty</td>
-      <td>Price</td>
-      <td>Remark</td>
+      <!-- <td>Price</td>
+      <td>Remark</td> -->
       <td>Remove</td>
     </tr>
   </thead>
@@ -50,8 +50,8 @@
             <%= d.qty  %>
           <% end %>
         </td>
-        <td><%= d.price %></td>
-        <td><%= d.remark %></td>
+        <!-- <td><%= d.price %></td>
+        <td><%= d.remark %></td> -->
         <td>
           <%= link_to "Destroy", detail_path(d,order: @order), method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
@@ -65,11 +65,10 @@
     <div class="actions">
       <%= f.hidden_field :status, value: false %>
       <%= f.submit "Fulfill order", class: 'btn btn-primary',data: { confirm: 'Are you sure?' } %>
-
     </div>
   <% end %>
   <br>
-  <%= link_to ':PDF', "#", class: 'btn btn-warning', onclick: 'window.print()' %>
 <% end %>
+<%= link_to 'Print', "#", class: 'btn btn-warning', onclick: 'window.print()' %>
 <hr>
 <%= link_to 'Back', orders_path %>

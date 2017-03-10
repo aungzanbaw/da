@@ -36,3 +36,26 @@ class TestController < ApplicationController
     }, status: 200
   end
 end
+
+def index
+  @records = ....
+  respond_to do |format|
+    format.html # index.html.erb
+    format.xml  { render :xml => @records }
+    format.csv  { @records.to_csv }
+  end
+end
+
+format.csv do
+  csv_string = FasterCSV.generate do |csv|
+    # header row
+    csv << ["id", "Column1", "Column1"]
+    # data rows
+    @records.each do |r|
+      csv << [r.id, r.column1, r.column2]
+    end
+  # send it to the browser
+  send_data csv_string,
+            :type => 'text/csv; charset=iso-8859-1; header=present',
+            :disposition => "attachment; filename=records.csv"
+end

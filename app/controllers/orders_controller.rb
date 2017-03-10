@@ -3,8 +3,8 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy, :done]
 
   def done
-    # @order.status = false
-    # render :show, status: "Update", location: @order
+    @order.status = false
+    render :show, status: "Update", location: @order
   end
 
   # GET /orders
@@ -86,6 +86,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:customer_id, :delivery, :gate, :remark, :payment, :total, :status, :department_id)
+      params.require(:order).permit(:customer_id, :delivery, :gate, :remark, :payment, :status, :department_id)
     end
 end
