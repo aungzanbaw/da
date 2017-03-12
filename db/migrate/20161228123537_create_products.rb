@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :brand
       t.string :group
-      t.integer :price, limit: 15
+      t.integer :price
       t.references :department, foreign_key: true
 
       t.timestamps
