@@ -53,10 +53,11 @@ group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   gem 'capistrano', require: false
-  gem 'capistrano-puma', require: false
   gem 'capistrano-rvm', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
+  gem 'capistrano-puma', require: false
+  gem 'capistrano-deploy'
 end
 
 group :production do
